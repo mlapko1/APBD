@@ -40,7 +40,15 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Container.cs" />
+        <Compile Include="ContainerShip.cs" />
+        <Compile Include="Containers\Container.cs" />
+        <Compile Include="Containers\GasContainer.cs" />
+        <Compile Include="Containers\LiquidContainer.cs" />
+        <Compile Include="Containers\RefrigeratedContainer.cs" />
+        <Compile Include="IHazardNotifier.cs" />
+        <Compile Include="ProductHelper.cs" />
+        <Compile Include="RefrigeratedProductType.cs" />
+        <Compile Include="SerialNumberGenerator.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
