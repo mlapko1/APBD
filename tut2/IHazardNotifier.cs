@@ -2,7 +2,7 @@ namespace tut2
 {
     public interface IHazardNotifier
     {
-        void Notify();
-
+        void NotifyHazard(string message);
     }
+
 }

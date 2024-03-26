@@ -1,26 +1,33 @@
-namespace tut2
+using System;
+using tut2;
+
+public class GasContainer : Container, IHazardNotifier
 {
-    public class GasContainer : Container, IHazardNotifier
+    public double Pressure { get; private set; }
+
+    public GasContainer(double tareWeight, double height, double depth, double maxPayload, double pressure)
+        : base(SerialNumberGenerator.GenerateSerialNumber("G"), tareWeight, height, depth, maxPayload)
     {
-        public GasContainer(double tareWeight, double height, double depth, double maxPayload, double pressure) : base(SerialNumberGenerator.GenerateSerialNumber("G"), tareWeight, height, depth, maxPayload)
-        {
-            Pressure = pressure;
-        }
+        Pressure = pressure;
+    }
 
-        public double Pressure { get; set; }
-        public override void LoadCargo(double mass)
+    public override void LoadCargo(double mass)
+    {
+        if (mass > MaxPayload)
         {
-            throw new System.NotImplementedException();
+            NotifyHazard($"Attempt to overload. Max allowable mass: {MaxPayload}, Attempted load mass: {mass}.");
+            throw new OverfillException($"Loading mass exceeds the allowable capacity for container {SerialNumber}.");
         }
+        CargoMass = mass;
+    }
 
-        public override void EmptyCargo()
-        {
-            throw new System.NotImplementedException();
-        }
+    public override void EmptyCargo()
+    {
+        CargoMass = MaxPayload * 0.05;
+    }
 
-        public void Notify()
-        {
-            throw new System.NotImplementedException();
-        }
+    public void NotifyHazard(string message)
+    {
+        Console.WriteLine($"Hazard Notification for Gas Container {SerialNumber}: {message}");
     }
 }

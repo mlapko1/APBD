@@ -8,5 +8,4 @@ namespace tut2
         Vegetables,
         Fish
     }
-
 }

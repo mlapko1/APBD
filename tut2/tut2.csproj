@@ -44,6 +44,7 @@
         <Compile Include="Containers\Container.cs" />
         <Compile Include="Containers\GasContainer.cs" />
         <Compile Include="Containers\LiquidContainer.cs" />
+        <Compile Include="Containers\OverfillException.cs" />
         <Compile Include="Containers\RefrigeratedContainer.cs" />
         <Compile Include="IHazardNotifier.cs" />
         <Compile Include="ProductHelper.cs" />

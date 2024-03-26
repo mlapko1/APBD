@@ -1,7 +1,11 @@
-namespace tut2.Containers
+using System;
+
+namespace tut2
 {
-    public class OverfillException
+    public class OverfillException : Exception
     {
-        
+        public OverfillException(string message) : base(message)
+        {
+        }
     }
 }
